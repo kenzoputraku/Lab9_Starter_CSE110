@@ -102,6 +102,142 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+
+    let log = errorBtns[0];
+    log.addEventListener('click', function(){
+      console.log("Console Log Demo");
+    });
+
+    let err = errorBtns[1];
+    err.addEventListener('click', function(){
+      console.error("Console Error Demo");
+    });
+
+    let cnt = errorBtns[2];
+    cnt.addEventListener('click', function(){
+      console.count("Count Button");
+    });
+
+    let warn = errorBtns[3];
+    warn.addEventListener('click', function(){
+      console.warn("Console Warn Button");
+    });
+    let number = 2;
+    const errmsg = "The number does not equal 3";
+    let assert = errorBtns[4];
+    assert.addEventListener('click', function(){
+      console.assert(number==3, {number, errmsg});
+    });
+
+    let clear = errorBtns[5];
+    clear.addEventListener('click', function(){
+      console.clear();
+    });
+
+    let dir = errorBtns[6];
+    dir.addEventListener('click', function(){
+      console.dir(dir);
+    });
+
+    let dirxml = errorBtns[7];
+    dirxml.addEventListener('click', function(){
+      console.dirxml(dirxml);
+    });
+
+    let group = errorBtns[8];
+    group.addEventListener('click', function(){
+      console.group();
+    });
+
+    let groupend = errorBtns[9];
+    groupend.addEventListener('click', function(){
+      console.groupEnd();
+    });
+
+    let table = errorBtns[10];
+    const arr = [
+      {
+        name: "Software Engineering",
+        num: 110,
+      },
+      {
+        name: "Programming Language",
+        num: 130,
+      },
+      {
+        name: "Advance Software Engineering",
+        num: 112,
+      }
+  ];
+    table.addEventListener('click', function(){
+      console.table(arr);
+    });
+
+    let startTimer = errorBtns[11];
+    startTimer.addEventListener('click', function(){
+      console.time("Timer Button");
+    });
+
+    let endTimer = errorBtns[12];
+    endTimer.addEventListener('click', function(){
+      console.timeEnd("Timer Button");
+    });
+
+    let handleBtnClick = () => { deep(); };
+    let deep = () => { deeper(); };
+    let deeper = () => { deepest(); };
+    let deepest = () => { console.trace(); };
+    let trace = errorBtns[13];
+    trace.addEventListener('click', function(){
+      handleBtnClick();
+    });
+
+    let globalErr = errorBtns[14];
+    globalErr.addEventListener('click', function(){
+      return boom;
+    });
+
+  class missingNameError extends Error {
+    constructor(message) {
+    super(message); // (1)
+    this.name = "missingNameError"; // (2)
+  }
+}
+    let start = Date.now()
+    try {
+      console.log("Starting try block");
+      let input = '{"age": 20}';
+
+      let user = JSON.parse(input);
+
+      if (!input.name) {
+        throw new missingNameError("Data is missing name");
+      }
+
+    } catch(err) {
+      console.log("Starting catch block");
+      console.log(err);
+    } finally {
+      console.log("Starting finally block");
+      console.log("Time:", differentTime = Date.now() - start);
+    }
+
+
+    window.onerror = function(error) {
+      console.log("Catched error using window.onerror", error);
+      console.log()
+    }
+
+
+    
+
+  </script>
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "ece7fd977d0d4b0c90a298a1805a4fef"
+      // for more configuration options, see https://docs.trackjs.com
+    });
   </script>
 </body>
 
